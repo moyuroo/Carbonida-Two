@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Dashboard.css">
+</head>
+<body>
+<div id="loading-overlay" class="loading-hidden">
+    <div class="spinner"></div>
+    <p>Running Program</p>
+</div>
+<div class="menu-container">
+    <div class="menu-welcome">
+        <img src="Acta_Learning-removebg-preview.png" alt="" style="width: 100%;">
+    </div>
+    <div class="home-feature active" onclick="showPage('home-page')">Home</div>
+    <div class="exercise-feature" onclick="showPage('exercise-page')">Exercise</div>
+    <div class="test-feature" onclick="showPage('test-page')">Test</div>
+    <div class="about-and-help-feature" onclick="showPage('about-page')">About & Help</div>
+</div>
+
+<div class="main-content">
+    <div id="home-page" class="page active">
+        <div class="page-profile-header">
+            <div class="profile-left-group">
+            <img src="pfp-user.jpg" alt="Profile" class="header-profile-pic">
+            <div class="header-user-info">
+                <span class="header-user-name">Carbonida Two</span>
+                <span class="header-user-status">Beta Tester</span>
+            </div>
+        </div>
+        <div class="coin-container-right">
+            <img src="acta coins.png" alt="" class="coin-icon">
+            <span class="coin-value">9.999</span>
+            <img src="acta gems.png" alt="" class="gem-icon">
+            <span class="gem-value">999</span>
+        </div>
+    </div>
+        <h1>Welcome to Home</h1>
+        <p>Ini adalah konten halaman Home.</p>
+    </div>
+
+    <div id="exercise-page" class="page">
+        <div class="page-profile-header">
+            <div class="profile-left-group">
+            <img src="pfp-user.jpg" alt="Profile" class="header-profile-pic">
+            <div class="header-user-info">
+                <span class="header-user-name">Carbonida Two</span>
+                <span class="header-user-status">Beta Tester</span>
+            </div>
+        </div>
+        <div class="coin-container-right">
+            <img src="acta coins.png" alt="" class="coin-icon">
+            <span class="coin-value">9.999</span>
+            <img src="acta gems.png" alt="" class="gem-icon">
+            <span class="gem-value">999</span>
+        </div>
+    </div>
+        <h1 class="exercise-title"><span class="exercise-title-colored">Exercise</span> Page</h1>
+        <p class="exercise-title-desc">Please select these exercise to upgrade your skill, agent.</p>
+        <div class="exercise-grid">
+            <div class="exercise-card quiz-feature" onclick="showPage('material-selection-page')" style="cursor: pointer;">
+                <img src="MC-icon-feature.png" alt="" class="exercise-icon">
+                <p>Quiz</p>
+            </div>
+            
+            <div class="exercise-card case-feature" onclick="showPage('case-detail-page')" style="cursor: pointer;">
+                <img src="SC-icon-feature.png" alt="" class="exercise-icon">
+                <p>Study Case</p>
+            </div>
+            <div class="exercise-card cycle-feature" onclick="showPage('cycle-detail-page')" style="cursor: pointer;">
+                <img src="AC-icon-feature.png" alt="" class="exercise-icon">
+                <p>Accounting Cycle</p>
+            </div>
+        </div>
+    </div>
+    <div id="material-selection-page" class="page">
+        <button onclick="showPage('exercise-page')" class="startbutton"> Kembali</button>
+        <h1 class="quiz-title">Select Material</h1>
+        <p class="quiz-title-desc">Choose the accounting topic you want to master today.</p>
+
+        <div class="exercise-grid">
+            <div class="exercise-card" onclick="selectMaterial('General Journal')">
+                <p>General Journal</p>
+            </div>
+            <div class="exercise-card" onclick="selectMaterial('Ledger')">
+                <p>Ledger</p>
+            </div>
+            <div class="exercise-card" onclick="selectMaterial('Financial Statement')">
+                <p>Financial Statement</p>
+            </div>
+            <div class="exercise-card" onclick="selectMaterial('Adjusting Entries')">
+                <p>Adjusting Entries</p>
+            </div>
+        </div>
+    </div>
+    <div id="quiz-detail-page" class="page">
+        <button onclick="showPage('exercise-page')" class="startbutton"> Kembali</button>
+        <h1 class="quiz-title">Quiz Room</h1>
+        <p class="quiz-title-desc">Please choose your difficulty, number of question and learning material as you want.</p>
+        <div class="difficulty-title">
+            <p>Difficulty</p>
+        </div>
+        <div class="class-type">
+            <span class="easy-class" onclick="selectDifficulty(this)">Easy</span>
+            <span class="medium-class" onclick="selectDifficulty(this)">Medium</span>
+            <span class="hard-class" onclick="selectDifficulty(this)">Hard</span>
+        </div>
+    
+        <div class="NoQ-title">
+            <p>Number of Question</p>
+        </div>
+        <div class="NoQ-type">
+            <span class="a-quest" onclick="selectNoQ(this)">5</span>
+            <span class="b-quest" onclick="selectNoQ(this)">10</span>
+            <span class="c-quest" onclick="selectNoQ(this)">15</span>
+            <span class="d-quest" onclick="selectNoQ(this)">20</span>
+            <span class="e-quest" onclick="selectNoQ(this)">25</span>
+        </div>
+    </div>
+    <div id="case-detail-page" class="page">
+        <button onclick="showPage('exercise-page')" class="startbutton"> Kembali</button>
+        <h1>Study Case Room</h1>
+        <p>Daftar kasus analisis akan muncul di sini.</p>
+    </div>
+
+    <div id="cycle-detail-page" class="page">
+        <button onclick="showPage('exercise-page')" class="startbutton"> Kembali</button>
+        <h1>Accounting Cycle</h1>
+        <p>Daftar kasus analisis akan muncul di sini.</p>
+    </div>
+    <div id="test-page" class="page">
+        <div class="page-profile-header">
+            <div class="profile-left-group">
+            <img src="pfp-user.jpg" alt="Profile" class="header-profile-pic">
+            <div class="header-user-info">
+                <span class="header-user-name">Carbonida Two</span>
+                <span class="header-user-status">Beta Tester</span>
+            </div>
+        </div>
+        <div class="coin-container-right">
+            <img src="acta coins.png" alt="" class="coin-icon">
+            <span class="coin-value">9.999</span>
+            <img src="acta gems.png" alt="" class="gem-icon">
+            <span class="gem-value">999</span>
+        </div>
+    </div>
+        <h1>Test Page</h1>
+        <p>Selesaikan ujian Anda untuk mendapatkan sertifikat.</p>
+    </div>
+
+    <div id="about-page" class="page">
+        <div class="page-profile-header">
+            <div class="profile-left-group">
+            <img src="pfp-user.jpg" alt="Profile" class="header-profile-pic">
+            <div class="header-user-info">
+                <span class="header-user-name">Carbonida Two</span>
+                <span class="header-user-status">Beta Tester</span>
+            </div>
+        </div>
+        <div class="coin-container-right">
+            <img src="acta coins.png" alt="" class="coin-icon">
+            <span class="coin-value">9.999</span>
+            <img src="acta gems.png" alt="" class="gem-icon">
+            <span class="gem-value">999</span>
+        </div>
+    </div>
+        <h1>About & Help</h1>
+        <p>Hubungi kami di actavia.project.gmail.com</p>
+    </div>
+</div>
+
+<div id="welcomeModal" class="modal-bg">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h2 style="color: rgb(0, 98, 255);">Caution!</h2>
+        </div>
+        <div class="modal-body">
+            <p style="font-size: 14px;">Hi, our agent. This project is early access (Beta Version) so you can explore our feature for free. Don't forget to report any bug or error to our email actavia.project.gmail.com. That's all, thank you!.</p>
+        </div>
+        <button id="closeBtn" class="close-btn">Agree</button>
+    </div>
+</div>
+
+<script>
+//LOADING JAVA
+function showPage(pageId) {
+    const overlay = document.getElementById('loading-overlay');
+    
+    // 1. Tampilkan loading overlay
+    overlay.classList.remove('loading-hidden');
+
+    // 2. Beri jeda singkat agar efek loading terlihat (misal 500ms)
+    setTimeout(() => {
+        // 3. Sembunyikan semua halaman
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active'));
+
+        // 4. Tampilkan halaman tujuan
+        document.getElementById(pageId).classList.add('active');
+
+        // 5. Update menu aktif (jika ada event)
+        if (event && event.currentTarget) {
+            const menuItems = document.querySelectorAll('.menu-container div');
+            menuItems.forEach(item => item.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+
+        // 6. Sembunyikan kembali loading overlay
+        overlay.classList.add('loading-hidden');
+    }, 1000); // 1000ms = 1 detik
+}
+//MENU
+document.addEventListener("DOMContentLoaded", function() {
+    const modal = document.getElementById('welcomeModal');
+    const closeBtn = document.getElementById('closeBtn');
+
+    // Cek localStorage
+    const hasSeenWarning = localStorage.getItem('seenWarning');
+
+    if (!hasSeenWarning) {
+        // Jika belum pernah lihat, tampilkan modal
+        modal.style.display = 'flex';
+    }
+
+    // Fungsi tutup
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+        localStorage.setItem('seenWarning', 'true');
+    });
+});
+
+/* 19/01/2026*/
+// Gunakan versi ini saja, hapus yang satunya lagi
+function showPage(pageId) {
+    const overlay = document.getElementById('loading-overlay');
+    overlay.classList.remove('loading-hidden');
+
+    setTimeout(() => {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active'));
+
+        document.getElementById(pageId).classList.add('active');
+
+        // Gunakan window.event untuk mendeteksi element klik
+        const currentEl = window.event ? window.event.currentTarget : null;
+        
+        if (currentEl && currentEl.parentElement.classList.contains('menu-container')) {
+            const menuItems = document.querySelectorAll('.menu-container div');
+            menuItems.forEach(item => item.classList.remove('active'));
+            currentEl.classList.add('active');
+        }
+
+        overlay.classList.add('loading-hidden');
+    }, 300);
+}
+//MATERI QUIZ
+let selectedMaterialGlobal = "";
+
+function selectMaterial(materialName) {
+    selectedMaterialGlobal = materialName;
+    console.log("Materi dipilih:", selectedMaterialGlobal);
+    
+    // Setelah pilih materi, baru arahkan ke setting difficulty & NoQ
+    showPage('quiz-detail-page');
+}
+//DIFICULTY JS
+function selectDifficulty(element) {
+    // 1. Cari semua tombol di dalam class-type
+    const buttons = document.querySelectorAll('.class-type span');
+    
+    // 2. Hapus class 'active' dari semua tombol tersebut
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // 3. Tambahkan class 'active' ke tombol yang sedang diklik
+    element.classList.add('active');
+    
+    // Tips: Anda bisa menyimpan nilai difficulty yang dipilih ke variabel
+    console.log("Difficulty terpilih:", element.innerText);
+}
+//NoQ JS
+function selectNoQ(element) {
+    // 1. Cari semua tombol di dalam class-type
+    const buttons = document.querySelectorAll('.NoQ-type span');
+    
+    // 2. Hapus class 'active' dari semua tombol tersebut
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // 3. Tambahkan class 'active' ke tombol yang sedang diklik
+    element.classList.add('active');
+    
+    // Tips: Anda bisa menyimpan nilai difficulty yang dipilih ke variabel
+    console.log("NoQ terpilih:", element.innerText);
+}
+
+</script>
+</body>
+</html>
