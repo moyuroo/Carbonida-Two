@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actavia Project</title>
+    <link rel="stylesheet" href="Dashboard.css">
+</head>
+<body>
+<div id="loading-overlay" class="loading-hidden">
+    <div class="spinner"></div>
+    <p>Running Program</p>
+</div>
+<div class="menu-container">
+    <div class="menu-welcome">
+        <img src="Acta_Learning-removebg-preview.png" alt="" style="width: 100%;">
+    </div>
+    <div class="home-feature" onclick="showPage('home-page')">Home</div>
+    <div class="exercise-feature" onclick="showPage('exercise-page')">Exercise</div>
+    <div class="test-feature" onclick="showPage('test-page')">Test</div>
+    <div class="report-feature" onclick="showPage('report-page')">Report</div>
+    <div class="help-feature" onclick="showPage('help-page')">Help</div>
+</div>
+
+<div class="main-content">
+    <div id="home-page" class="page active">
+        <div class="page-profile-header">
+            <div class="profile-left-group">
+            <img src="pfp-user.jpg" alt="Profile" class="header-profile-pic">
+            <div class="header-user-info">
+                <span class="header-user-name">Carbonida Two</span>
+                <span class="header-user-status">Beta Tester</span>
+            </div>
+        </div>
+        <div class="coin-container-right">
+            <img src="acta coins.png" alt="" class="coin-icon">
+            <span class="coin-value">9.999</span>
+            <img src="acta gems.png" alt="" class="gem-icon">
+            <span class="gem-value">999</span>
+        </div>
+    </div>
+        <h1>Welcome to Home</h1>
+        <p>Ini adalah konten halaman Home.</p>
+    </div>
+
+    <div id="exercise-page" class="page">
+        <div class="page-profile-header">
+            <div class="profile-left-group">
+            <img src="pfp-user.jpg" alt="Profile" class="header-profile-pic">
+            <div class="header-user-info">
+                <span class="header-user-name">Carbonida Two</span>
+                <span class="header-user-status">Beta Tester</span>
+            </div>
+        </div>
+        <div class="coin-container-right">
+            <img src="acta coins.png" alt="" class="coin-icon">
+            <span class="coin-value">9.999</span>
+            <img src="acta gems.png" alt="" class="gem-icon">
+            <span class="gem-value">999</span>
+        </div>
+    </div>
+        <h1 class="exercise-title"><span class="exercise-title-colored">Exercise</span> Page</h1>
+        <p class="exercise-title-desc">Please select these exercise to upgrade your skill, agent.</p>
+        <div class="exercise-grid">
+            <div class="exercise-card quiz-feature" onclick="showPage('material-selection-page')" style="cursor: pointer;">
+                <img src="MC-icon-feature.png" alt="" class="exercise-icon">
+                <p>Quiz</p>
+            </div>
+            
+            <div class="exercise-card case-feature" onclick="showPage('case-detail-page')" style="cursor: pointer;">
+                <img src="SC-icon-feature.png" alt="" class="exercise-icon">
+                <p>Study Case</p>
+            </div>
+            <div class="exercise-card cycle-feature" onclick="showPage('cycle-detail-page')" style="cursor: pointer;">
+                <img src="AC-icon-feature.png" alt="" class="exercise-icon">
+                <p>Accounting Cycle</p>
+            </div>
+        </div>
+    </div>
+    <div id="material-selection-page" class="page">
+        <button onclick="showPage('exercise-page')" class="startbutton"> Kembali</button>
+        <h1 class="quiz-title">Select Material</h1>
+        <p class="quiz-title-desc">Choose the accounting topic you want to master today.</p>
+
+        <div class="exercise-grid">
+            <div class="exercise-card" onclick="selectMaterial('Basics of Accounting')">
+                <img src="basicsof-acc-icon.png" alt="" class="quiz-material-icon" >
+                <p>Basics of Accounting</p>
+            </div>
+            <div class="exercise-card" onclick="selectMaterial('Cost Accounting')">
+                <img src="cost-acc-icon.png" alt="" class="quiz-material-icon">
+                <p>Cost Accounting</p>
+            </div>
+            <div class="exercise-card" onclick="selectMaterial('Financial Accounting')">
+                <p>Financial Accounting</p>
+            </div>
+            <div class="exercise-card" onclick="selectMaterial('Trading Accounting')">
+                <p>Trading Accounting</p>
+            </div>
+            <div class="exercise-card" onclick="selectMaterial('Tax Accounting')">
+                <p>Tax Accounting</p>
+            </div>
+            <div class="exercise-card" onclick="selectMaterial('Government Accounting')">
+                <p>Government Accounting</p>
+            </div>
+        </div>
+    </div>
+    <div id="quiz-detail-page" class="page">
+        <button onclick="showPage('exercise-page')" class="startbutton"> Kembali</button>
+        <h1 class="quiz-title">Quiz Room</h1>
+        <p class="quiz-title-desc">Please choose your difficulty, number of question and learning material.</p>
+        
+        <div class="difficulty-title"><p>Difficulty</p></div>
+        <div class="class-type">
+            <span class="easy-class" onclick="selectDifficulty(this)">Easy</span>
+            <span class="medium-class" onclick="selectDifficulty(this)">Medium</span>
+            <span class="hard-class" onclick="selectDifficulty(this)">Hard</span>
+        </div>
+    
+        <div class="NoQ-title"><p>Number of Question</p></div>
+        <div class="NoQ-type">
+            <span class="a-quest" onclick="selectNoQ(this)">5</span>
+            <span class="b-quest" onclick="selectNoQ(this)">10</span>
+            <span class="c-quest" onclick="selectNoQ(this)">15</span>
+        </div>
+
+        <div class="NoQ-title"><p>Sub Material</p></div>
+        <div id="sub-material-container" class="sub-material-grid"></div>
+
+        <div class="play-section-wrapper">
+            <div class="energy-container">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <img src="fingerprint-icon.png" class="energy-icon" style="width: 20px;">
+                    <span id="energy-count" class="energy-text" style="font-weight: bold; color: #007bff;">5/5</span>
+                </div>
+                <div class="energy-info-group">
+                    <span id="energy-refill-timer" class="energy-timer" style="font-size: 10px; color: #666;">Full</span>
+                </div>
+            </div>
+            
+            <button id="main-play-btn" class="play-button" onclick="startQuiz()">
+                PLAY &rarr;
+            </button>
+        </div>
+    </div>
+
+    <div id="quiz-running-page" class="page">
+        <div class="page-profile-header">
+            <span id="quiz-progress" style="font-weight: bold; color: #007bff;">Question 1 of 5</span>
+            <span id="display-id" style="font-size: 11px; color: #999; font-family: monospace;">ID: ---</span>
+            <span id="quiz-timer">00:00</span>
+        </div>
+        <div class="quiz-container" style="margin-top: 20px;">
+            <h3 id="display-question" style="margin-bottom: 20px;">Loading Question...</h3>
+            <div id="options-container" class="options-column">
+                </div>
+        </div>
+        <div class="play-container" style="margin-top: 20px; text-align: right;">
+            <button id="next-btn" class="play-button" onclick="nextQuestion()" style="display: none;">Next &rarr;</button>
+        </div>
+    </div>
+
+    <div id="result-page" class="page">
+        <h1 class="exercise-title-colored">Mission Accomplished!</h1>
+        <div class="exercise-grid">
+            <div class="exercise-card"><p>Correct</p><h2 id="stat-correct" style="color: green;">0</h2></div>
+            <div class="exercise-card"><p>Wrong</p><h2 id="stat-wrong" style="color: red;">0</h2></div>
+            <div class="exercise-card" style="grid-column: span 2;"><p>Final Score</p><h1 id="stat-score">0</h1></div>
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <button onclick="showPage('exercise-page')" class="startbutton" style="flex:1">Back to Menu</button>
+            <button onclick="renderReview()" class="startbutton" style="flex:1; background-color: #007bff; color: white;">Review Answers</button>
+        </div>
+        <div id="review-section" style="margin-top: 30px;"></div>
+        <div style="text-align: right; margin-top: 30px;">
+            <button class="play-button" onclick="startQuiz()">PLAY &rarr;</button>
+        </div>
+    </div>
+    <div id="case-detail-page" class="page">
+        <button onclick="showPage('exercise-page')" class="startbutton"> Kembali</button>
+        <h1>Study Case Room</h1>
+        <p>Daftar kasus analisis akan muncul di sini.</p>
+    </div>
+
+    <div id="cycle-detail-page" class="page">
+        <button onclick="showPage('exercise-page')" class="startbutton"> Kembali</button>
+        <h1>Accounting Cycle</h1>
+        <p>Daftar kasus analisis akan muncul di sini.</p>
+    </div>
+    <div id="test-page" class="page">
+        <div class="page-profile-header">
+            <div class="profile-left-group">
+            <img src="pfp-user.jpg" alt="Profile" class="header-profile-pic">
+            <div class="header-user-info">
+                <span class="header-user-name">Carbonida Two</span>
+                <span class="header-user-status">Beta Tester</span>
+            </div>
+        </div>
+        <div class="coin-container-right">
+            <img src="acta coins.png" alt="" class="coin-icon">
+            <span class="coin-value">9.999</span>
+            <img src="acta gems.png" alt="" class="gem-icon">
+            <span class="gem-value">999</span>
+        </div>
+    </div>
+        <h1>Test Page</h1>
+        <p>Selesaikan ujian Anda untuk mendapatkan sertifikat.</p>
+    </div>
+
+    <div id="reportt-page" class="page">
+        <div class="page-profile-header">
+            <div class="profile-left-group">
+            <img src="pfp-user.jpg" alt="Profile" class="header-profile-pic">
+            <div class="header-user-info">
+                <span class="header-user-name">Carbonida Two</span>
+                <span class="header-user-status">Beta Tester</span>
+            </div>
+        </div>
+        <div class="coin-container-right">
+            <img src="acta coins.png" alt="" class="coin-icon">
+            <span class="coin-value">9.999</span>
+            <img src="acta gems.png" alt="" class="gem-icon">
+            <span class="gem-value">999</span>
+        </div>
+    </div>
+    <div id="report-page" class="page">
+        <div class="page-profile-header">
+            </div>
+        <h1>About Acta Learning</h1>
+        <p>Acta Learning adalah platform edukasi akuntansi masa depan untuk para agen profesional.</p>
+    </div>
+
+    <div id="help-page" class="page">
+        <div class="page-profile-header">
+            </div>
+        <h1>Help & Support</h1>
+        <p>Ada kendala? Hubungi tim support kami di: <strong>actavia.project@gmail.com</strong></p>
+        <div class="exercise-card">
+            <p>FAQ: Cara mendapatkan koin?</p>
+            <span>Selesaikan kuis dengan skor di atas 80!</span>
+        </div>
+    </div>
+</div>
+
+<div id="welcomeModal" class="modal-bg">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h2 style="color: rgb(0, 98, 255);">Caution!</h2>
+        </div>
+        <div class="modal-body">
+            <p style="font-size: 14px;">Hi, our agent. This project is early access (Beta Version) so you can explore our feature for free. Don't forget to report any bug or error to our email actavia.project.gmail.com. That's all, thank you!.</p>
+        </div>
+        <button id="closeBtn" class="close-btn">Agree</button>
+    </div>
+</div>
+
+<script src="Quiz-BOA.js"></script>
+<script>
+//LOADING JAVA
+function showPage(pageId) {
+    const overlay = document.getElementById('loading-overlay');
+    overlay.classList.remove('loading-hidden');
+
+    setTimeout(() => {
+        // 1. Sembunyikan semua halaman konten
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active'));
+
+        // 2. Tampilkan halaman yang dituju
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) targetPage.classList.add('active');
+
+        // 3. LOGIKA MENU: Hapus class active dari SEMUA tombol menu
+        const allMenuItems = document.querySelectorAll('.menu-container div');
+        allMenuItems.forEach(item => item.classList.remove('active'));
+
+        // 4. OTOMATISASI BIRU: Cari menu yang onclick-nya mengandung pageId
+        // Ini akan mencakup Home, Exercise, Test, dan About secara otomatis
+        allMenuItems.forEach(menu => {
+            const clickAction = menu.getAttribute('onclick');
+            if (clickAction && clickAction.includes(pageId)) {
+                menu.classList.add('active');
+            }
+        });
+
+        // 5. PENANGANAN KHUSUS (Sub-halaman Exercise)
+        // Jika sedang di dalam Quiz Detail atau Material Selection, menu Exercise harus tetap biru
+        const exerciseSubPages = ['material-selection-page', 'quiz-detail-page', 'case-detail-page', 'cycle-detail-page'];
+        if (exerciseSubPages.includes(pageId)) {
+            document.querySelector('.exercise-feature').classList.add('active');
+        }
+
+        overlay.classList.add('loading-hidden');
+    }, 300);
+}
+//MENU
+document.addEventListener("DOMContentLoaded", function() {
+    const modal = document.getElementById('welcomeModal');
+    const closeBtn = document.getElementById('closeBtn');
+
+    // Cek localStorage
+    const hasSeenWarning = localStorage.getItem('seenWarning');
+
+    if (!hasSeenWarning) {
+        // Jika belum pernah lihat, tampilkan modal
+        modal.style.display = 'flex';
+    }
+
+    // Fungsi tutup
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+        localStorage.setItem('seenWarning', 'true');
+    });
+});
+
+//MATERI QUIZ
+let selectedMaterialGlobal = "";
+
+function selectMaterial(materialName) {
+    selectedMaterialGlobal = materialName;
+    console.log("Materi dipilih:", selectedMaterialGlobal);
+    
+    // Setelah pilih materi, baru arahkan ke setting difficulty & NoQ
+    showPage('quiz-detail-page');
+}
+//DIFICULTY JS
+function selectDifficulty(element) {
+    // 1. Cari semua tombol di dalam class-type
+    const buttons = document.querySelectorAll('.class-type span');
+    
+    // 2. Hapus class 'active' dari semua tombol tersebut
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // 3. Tambahkan class 'active' ke tombol yang sedang diklik
+    element.classList.add('active');
+    
+    // Tips: Anda bisa menyimpan nilai difficulty yang dipilih ke variabel
+    console.log("Difficulty terpilih:", element.innerText);
+}
+//NoQ JS
+function selectNoQ(element) {
+    // 1. Cari semua tombol di dalam class-type
+    const buttons = document.querySelectorAll('.NoQ-type span');
+    
+    // 2. Hapus class 'active' dari semua tombol tersebut
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // 3. Tambahkan class 'active' ke tombol yang sedang diklik
+    element.classList.add('active');
+    
+    // Tips: Anda bisa menyimpan nilai difficulty yang dipilih ke variabel
+    console.log("NoQ terpilih:", element.innerText);
+}
+//SUB M JS
+// 1. Data Sub-Materi
+const quizDatabase = {
+    'Basics of Accounting': ['Accounting Equation', 'Journal Entry', 'Ledger', 'Trial Balance','Adjustment','Worksheet', 'Financial Statement'],
+    'Cost Accounting': ['Material Cost', 'Labor Cost', 'Overhead'],
+    'Financial Accounting': ['Balance Sheet', 'Income Statement', 'Cash Flow'],
+    'Trading Accounting': ['Inventory', 'Purchase & Sales', 'Cost of Goods Sold'],
+    'Tax Accounting': ['VAT (PPN)', 'Income Tax', 'Tax Report'],
+    'Government Accounting': ['Public Fund', 'Budgeting', 'State Assets']
+};
+
+// 2. Fungsi saat materi dipilih
+function selectMaterial(materialName) {
+    selectedMaterialGlobal = materialName;
+    
+    const subContainer = document.getElementById('sub-material-container');
+    subContainer.innerHTML = ""; 
+    
+    // Pastikan container menggunakan class grid yang baru kita buat
+    subContainer.className = "sub-material-grid"; 
+
+    const subs = quizDatabase[materialName] || ['General Topic'];
+
+    subs.forEach(sub => {
+        const div = document.createElement('div');
+        div.className = 'sub-item'; // Menggunakan styling baru
+        div.innerText = sub;
+        
+        div.onclick = function() {
+            const selectedSubs = subContainer.querySelectorAll('.sub-item.active');
+            
+            // Jika sudah 5 dan yang diklik bukan yang sudah aktif, cegah!
+            if (selectedSubs.length >= 5 && !this.classList.contains('active')) {
+                alert("Maksimal pilih 5 sub-materi, Agent!");
+                return;
+            }
+            
+            // Toggle class active (bisa pilih lebih dari satu)
+            this.classList.toggle('active'); 
+            console.log("Sub-materi terpilih");
+        };
+        
+        subContainer.appendChild(div);
+    });
+
+    showPage('quiz-detail-page');
+}
+
+function startQuiz() {
+    const diff = document.querySelector('.class-type .active')?.innerText;
+    const noqText = document.querySelector('.NoQ-type .active')?.innerText;
+    
+    // Ambil SEMUA sub-materi yang ada class 'active'
+    const selectedSubsElements = document.querySelectorAll('#sub-material-container .sub-item.active');
+    const selectedSubs = Array.from(selectedSubsElements).map(el => el.innerText);
+
+    if (!diff || !noqText || selectedSubs.length === 0) {
+        alert("Agent, pilih Difficulty, Jumlah Soal, dan minimal 1 Sub-materi!");
+        return;
+    }
+
+    let totalNoQ = parseInt(noqText);
+    let finalQuestions = [];
+    
+    // Hitung jatah soal per sub-materi (misal 5 soal / 3 sub = 1.66 -> dibulatkan ke bawah)
+    let basePerSub = Math.floor(totalNoQ / selectedSubs.length);
+    let sisaSoal = totalNoQ % selectedSubs.length;
+
+    selectedSubs.forEach((subName, index) => {
+        // Filter soal berdasarkan kriteria
+        let pool = questionDatabase.filter(q => 
+            q.difficulty === diff && 
+            q.material === selectedMaterialGlobal && 
+            q.sub === subName
+        );
+
+        // Tentukan berapa banyak yang diambil dari sub ini
+        let amountToTake = basePerSub + (index < sisaSoal ? 1 : 0);
+
+        // Acak pool dan ambil soalnya
+        let shuffledSubPool = pool.sort(() => 0.5 - Math.random()).slice(0, amountToTake);
+        finalQuestions = finalQuestions.concat(shuffledSubPool);
+    });
+
+    // Validasi jika soal di database ternyata kurang dari NOQ yang diminta
+    if (finalQuestions.length < totalNoQ) {
+        alert("Maaf Agent, jumlah soal di database kami tidak mencukupi untuk kombinasi ini. Coba pilih sub-materi lain.");
+        return;
+    }
+
+    // Acak ulang hasil gabungan agar urutan sub-materi tidak kaku (campur aduk)
+    currentQuestions = finalQuestions.sort(() => 0.5 - Math.random());
+    currentQuestionIndex = 0;
+    userAnswers = [];
+    
+    showPage('quiz-running-page');
+    renderQuestion();
+}
+// 2. VARIABEL KONTROL KUIS
+let currentQuestions = [];
+let userAnswers = [];
+let currentQuestionIndex = 0;
+
+// 3. FUNGSI MEMULAI KUIS (Filtering)
+function startQuiz() {
+    const diff = document.querySelector('.class-type .active')?.innerText;
+    const noq = parseInt(document.querySelector('.NoQ-type .active')?.innerText);
+    const sub = document.querySelector('#sub-material-container .active')?.innerText;
+
+    if (!diff || !noq || !sub) {
+        alert("Harap pilih Difficulty, Jumlah Soal, dan Sub-materi!");
+        return;
+    }
+
+    // Filter soal dari database
+    const filtered = questionDatabase.filter(q => 
+        q.difficulty === diff && 
+        q.material === selectedMaterialGlobal && 
+        q.sub === sub
+    );
+
+    if (filtered.length === 0) {
+        alert("Soal belum tersedia untuk kriteria ini.");
+        return;
+    }
+
+    // Acak dan ambil sesuai jumlah NoQ
+    currentQuestions = filtered.sort(() => 0.5 - Math.random()).slice(0, noq);
+    currentQuestionIndex = 0;
+    userAnswers = [];
+    
+    showPage('quiz-running-page');
+    renderQuestion();
+}
+
+// 4. MENAMPILKAN SOAL
+function renderQuestion() {
+    const q = currentQuestions[currentQuestionIndex];
+    // 1. Tampilkan ID Soal di kanan atas
+    document.getElementById('display-id').innerText = `ID: ${q.id || 'N/A'}`;
+    document.getElementById('quiz-progress').innerText = `Question ${currentQuestionIndex + 1} of ${currentQuestions.length}`;
+    document.getElementById('display-question').innerText = q.question;
+    
+    const optionsCont = document.getElementById('options-container');
+    optionsCont.innerHTML = "";
+    document.getElementById('next-btn').style.display = "none";
+
+    // --- LOGIKA PENGACAKAN OPSI ---
+    // 1. Map opsi asli ke objek agar kita tahu index aslinya (untuk pengecekan jawaban)
+    let shuffledOptions = q.options.map((opt, index) => ({
+        text: opt,
+        originalIndex: index
+    }));
+
+    // 2. Acak urutan array shuffledOptions
+    shuffledOptions.sort(() => Math.random() - 0.5);
+
+    // 3. Render ke HTML
+    shuffledOptions.forEach((optObj, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'option-item';
+        // Menggunakan huruf A, B, C...
+        btn.innerText = `${String.fromCharCode(65 + i)}. ${optObj.text}`;
+        
+        // Simpan index asli ke dalam fungsi klik
+        btn.onclick = () => selectOption(optObj.originalIndex, btn);
+        
+        optionsCont.appendChild(btn);
+    });
+}
+
+function selectOption(index, element) {
+    userAnswers[currentQuestionIndex] = index;
+    document.querySelectorAll('.option-item').forEach(el => el.classList.remove('selected'));
+    element.classList.add('selected');
+    document.getElementById('next-btn').style.display = "block";
+}
+
+function nextQuestion() {
+    if (currentQuestionIndex < currentQuestions.length - 1) {
+        currentQuestionIndex++;
+        renderQuestion();
+    } else {
+        finishQuiz();
+    }
+}
+
+// 5. SELESAI & STATISTIK
+function finishQuiz() {
+    let correct = 0;
+    currentQuestions.forEach((q, i) => {
+        if (userAnswers[i] === q.answer) correct++;
+    });
+
+    const score = Math.round((correct / currentQuestions.length) * 100);
+    
+    document.getElementById('stat-correct').innerText = correct;
+    document.getElementById('stat-wrong').innerText = currentQuestions.length - correct;
+    document.getElementById('stat-score').innerText = score;
+
+    showPage('result-page');
+}
+
+// 6. REVIEW SOAL
+function renderReview() {
+    const cont = document.getElementById('review-section');
+    cont.innerHTML = "<h3>Detailed Review</h3>";
+
+    currentQuestions.forEach((q, i) => {
+        const isCorrect = userAnswers[i] === q.answer;
+        const card = document.createElement('div');
+        card.className = 'review-card';
+        card.style.borderLeft = `5px solid ${isCorrect ? '#28a745' : '#dc3545'}`;
+        
+        card.innerHTML = `
+            <p><strong>${i+1}. ${q.question}</strong></p>
+            <p>Your Answer: <span style="color:${isCorrect ? 'green' : 'red'}">${q.options[userAnswers[i]] || 'No Answer'}</span></p>
+            <p>Correct Answer: <span style="color:green; font-weight:bold;">${q.options[q.answer]}</span></p>
+            <div class="explanation-box">
+                <strong>Penjelasan:</strong><br>${q.explanation}
+            </div>
+        `;
+        cont.appendChild(card);
+    });
+}
+// --- 1. LOGIKA SISTEM ENERGI ---
+const MAX_ENERGY = 5;
+const REFILL_TIME = 6 * 60; 
+let energy = parseInt(localStorage.getItem('agent_energy')) || MAX_ENERGY;
+let lastRefillTime = parseInt(localStorage.getItem('last_refill_time')) || Date.now();
+
+function updateEnergySystem() {
+    const now = Date.now();
+    const secondsPassed = Math.floor((now - lastRefillTime) / 1000);
+
+    if (energy < MAX_ENERGY) {
+        const energyToRegen = Math.floor(secondsPassed / REFILL_TIME);
+        if (energyToRegen > 0) {
+            energy = Math.min(MAX_ENERGY, energy + energyToRegen);
+            lastRefillTime = lastRefillTime + (energyToRegen * REFILL_TIME * 1000);
+            localStorage.setItem('agent_energy', energy);
+            localStorage.setItem('last_refill_time', lastRefillTime);
+        }
+    } else {
+        lastRefillTime = now;
+    }
+    renderEnergyUI();
+}
+
+function renderEnergyUI() {
+    const energyText = document.getElementById('energy-count');
+    const timerText = document.getElementById('energy-refill-timer');
+    const playBtn = document.getElementById('main-play-btn');
+
+    if(!energyText || !timerText || !playBtn) return;
+
+    energyText.innerText = `${energy}/${MAX_ENERGY}`;
+
+    if (energy < MAX_ENERGY) {
+        const nextRefillIn = REFILL_TIME - Math.floor((Date.now() - lastRefillTime) / 1000);
+        const mins = Math.floor(nextRefillIn / 60);
+        const secs = nextRefillIn % 60;
+        timerText.innerText = `+1 in ${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    } else {
+        timerText.innerText = "Full Energy";
+    }
+
+    if (energy <= 0) {
+        playBtn.disabled = true;
+        playBtn.innerText = "OUT OF ENERGY";
+    } else {
+        playBtn.disabled = false;
+        playBtn.innerHTML = "PLAY &rarr;";
+    }
+}
+
+setInterval(updateEnergySystem, 1000);
+
+// --- 2. FUNGSI START QUIZ (PEMICU UTAMA) ---
+function startQuiz() {
+    const diff = document.querySelector('.class-type .active')?.innerText;
+    const noqText = document.querySelector('.NoQ-type .active')?.innerText;
+    const selectedSubsElements = document.querySelectorAll('#sub-material-container .sub-item.active');
+    
+    // Validasi Pilihan
+    if (!diff || !noqText || selectedSubsElements.length === 0) {
+        alert("Agent, please select Difficulty, NoQ, and at least 1 Sub Material!");
+        return;
+    }
+
+    // Validasi Energi
+    if (energy <= 0) {
+        alert("Not enough energy, Agent!");
+        return;
+    }
+
+    // Kurangi Energi
+    energy--;
+    if (energy < MAX_ENERGY && energy + 1 === MAX_ENERGY) {
+        lastRefillTime = Date.now();
+    }
+    localStorage.setItem('agent_energy', energy);
+    localStorage.setItem('last_refill_time', lastRefillTime);
+
+    // Jalankan Logika Filter Soal
+    runQuizLogic(diff, noqText, selectedSubsElements);
+}
+
+// --- 3. LOGIKA FILTER SOAL (PENGISI DATA) ---
+function runQuizLogic(diff, noqText, selectedSubsElements) {
+    let totalNoQ = parseInt(noqText);
+    const selectedSubs = Array.from(selectedSubsElements).map(el => el.innerText);
+    let finalQuestions = [];
+    
+    let basePerSub = Math.floor(totalNoQ / selectedSubs.length);
+    let sisaSoal = totalNoQ % selectedSubs.length;
+
+    selectedSubs.forEach((subName, index) => {
+        let pool = questionDatabase.filter(q => 
+            q.difficulty === diff && 
+            q.material === selectedMaterialGlobal && 
+            q.sub === subName
+        );
+
+        let amountToTake = basePerSub + (index < sisaSoal ? 1 : 0);
+        let shuffledSubPool = pool.sort(() => 0.5 - Math.random()).slice(0, amountToTake);
+        finalQuestions = finalQuestions.concat(shuffledSubPool);
+    });
+
+    if (finalQuestions.length < totalNoQ) {
+        alert("Sorry Agent, not enough questions in database for this selection.");
+        // Kembalikan energi jika gagal
+        energy++;
+        localStorage.setItem('agent_energy', energy);
+        return;
+    }
+
+    currentQuestions = finalQuestions.sort(() => 0.5 - Math.random());
+    currentQuestionIndex = 0;
+    userAnswers = [];
+    
+    showPage('quiz-running-page');
+    renderQuestion();
+}
+</script>
+
+</body>
+</html>
